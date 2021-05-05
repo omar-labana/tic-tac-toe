@@ -32,11 +32,11 @@ print_interface_row(interface_row, interface_col)
 move = 1
 playing = nil
 while move <= 9
-  if move%2 == 1
-    playing = player_1_name
-  else
-    playing = player_2_name
-  end
+  playing = if move.odd?
+              player_1_name
+            else
+              player_2_name
+            end
   puts "It's #{playing}\'s turn!"
   puts 'Please select an available cell from the board'
   cell_number = gets.chomp.to_i
