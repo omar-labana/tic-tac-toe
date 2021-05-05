@@ -31,8 +31,8 @@ end
 
 move = 1
 playing = nil
-game = GameState.new()
-p game.game_board,game.game_state
+game = GameState.new
+p game.game_board, game.game_state
 while move <= 9
   playing = if move.odd?
               player_1_name
