@@ -2,8 +2,16 @@
 puts 'Welcome to Ruby\'s Tic-Tac-Toe'
 puts 'Please, Enter player 1 name:'
 player_1_name = gets.chomp
+while player_1_name.empty?
+  puts 'Please enter a valid name for player 1.'
+  player_1_name = gets.chomp
+end
 puts 'Please, Enter player 2 name:'
 player_2_name = gets.chomp
+while player_2_name.empty?
+  puts 'Please enter a valid name for player 2.'
+  player_2_name = gets.chomp
+end
 puts "#{player_1_name} will play with X and #{player_2_name} will play with O"
 puts 'Let\'s Start!'
 
@@ -21,21 +29,29 @@ def print_interface_row(row, col, _board_cells = nil)
 end
 
 print_interface_row(interface_row, interface_col)
-
-puts "It's #{player_1_name} turn!"
-puts 'Plese select an available cell from the board'
-cell_number = gets.chomp.to_i
-if cell_number.positive? && cell_number < 10
-  puts "#{player_1_name} choose #{cell_number}"
-else
-  puts 'Please enter a valid cell!'
-end
-
-puts "It's #{player_2_name} turn!"
-puts 'Plese select an available cell from the board'
-cell_number = gets.chomp.to_i
-if cell_number.positive? && cell_number < 10
-  puts "#{player_2_name} choose #{cell_number}"
-else
-  puts 'Please enter a valid cell!'
+move = 1
+playing = nil
+while move <= 9
+  if move%2 == 1
+    playing = player_1_name
+  else
+    playing = player_2_name
+  end
+  puts "It's #{playing}\'s turn!"
+  puts 'Please select an available cell from the board'
+  cell_number = gets.chomp.to_i
+  if cell_number.positive? && cell_number < 10
+    puts "#{playing} choose #{cell_number}"
+    if cell_number == 5
+      puts "#{playing} played a draw move."
+      break
+    end
+    if cell_number == 9
+      puts "#{playing} played a winning move."
+      break
+    end
+    move += 1
+  else
+    puts 'Please enter a valid cell!'
+  end
 end
