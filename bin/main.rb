@@ -22,4 +22,20 @@ end
 
 print_interface_row(interface_row, interface_col)
 
+puts "It's #{player_1_name} turn!"
+puts "Plese select an available cell from the board" 
+cell_number = gets.chomp.to_i
+if cell_number > 0 && cell_number < 10
+  puts "#{player_1_name} choose #{cell_number}"
+else 
+  puts 'Please enter a valid cell!'
+end
 
+puts "It's #{player_2_name} turn!"
+puts "Plese select an available cell from the board" 
+cell_number = gets.chomp.to_i
+if cell_number > 0 && cell_number < 10
+  puts "#{player_2_name} choose #{cell_number}"
+else 
+  puts 'Please enter a valid cell!'
+end
