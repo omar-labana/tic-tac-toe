@@ -42,6 +42,7 @@ while move <= 9
   cell_number = gets.chomp.to_i
   if cell_number.positive? && cell_number < 10
     puts "#{playing} choose #{cell_number}"
+    print_interface_row(interface_row, interface_col)
     if cell_number == 5
       puts "#{playing} played a draw move."
       break
