@@ -29,7 +29,6 @@ def print_interface_row(row, col, _board_cells = nil)
   puts row
 end
 
-print_interface_row(interface_row, interface_col)
 move = 1
 playing = nil
 game = GameState.new()
@@ -40,12 +39,13 @@ while move <= 9
             else
               player_2_name
             end
+  # Gem.win_platform? ? (system "cls") : (system "clear")
+  print_interface_row(interface_row, interface_col)
   puts "It's #{playing}\'s turn!"
   puts 'Please select an available cell from the board'
   cell_number = gets.chomp.to_i
   if cell_number.positive? && cell_number < 10
     puts "#{playing} choose #{cell_number}"
-    print_interface_row(interface_row, interface_col)
     if cell_number == 5
       puts "#{playing} played a draw move."
       break
