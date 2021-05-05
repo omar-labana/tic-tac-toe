@@ -19,13 +19,13 @@ puts 'Let\'s Start!'
 interface_row = '+---+---+---+'
 interface_col = '|'
 
-def print_interface_row(row, col, _board_cells = nil)
+def print_interface_row(row, col, board_cells)
   puts row
-  puts "#{col} 1 #{col} 2 #{col} 3 #{col}"
+  puts "#{col} #{board_cells[0]} #{col} #{board_cells[1]} #{col} #{board_cells[2]} #{col}"
   puts row
-  puts "#{col} 4 #{col} 5 #{col} 6 #{col}"
+  puts "#{col} #{board_cells[3]} #{col} #{board_cells[4]} #{col} #{board_cells[5]} #{col}"
   puts row
-  puts "#{col} 7 #{col} 8 #{col} 9 #{col}"
+  puts "#{col} #{board_cells[6]} #{col} #{board_cells[7]} #{col} #{board_cells[8]} #{col}"
   puts row
 end
 
@@ -40,11 +40,11 @@ while move <= 9
               player_2_name
             end
   # Gem.win_platform? ? (system "cls") : (system "clear")
-  print_interface_row(interface_row, interface_col)
+  print_interface_row(interface_row, interface_col, game.game_board)
   puts "It's #{playing}\'s turn!"
   puts 'Please select an available cell from the board'
   cell_number = gets.chomp.to_i
-  if cell_number.positive? && cell_number < 10
+  if cell_number>-1 && cell_number < 10
     puts "#{playing} choose #{cell_number}"
     if cell_number == 5
       puts "#{playing} played a draw move."

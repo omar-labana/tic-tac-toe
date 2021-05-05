@@ -3,13 +3,17 @@ class GameState
 
   def initialize()
     # 9 Board Cells
-    @game_board = *(1..9)
+    @game_board = *(0..8)
     @game_state = 'Pending'
   end
 
-  def is_valid_placement?(cell_number, numer_of_used_cells)
-    is_valid = nil
-    @game_board[cell_number].is_a?(Numeric) && numer_of_used_cells <= 9
+  def is_valid_placement?(cell_number)
+    if cell_number.is_a?(String) || cell_number<1
+      return false
+    else
+      return true if @game_board[cell_number].is_a?(Numeric) && @game_board.count(Numeric)<=9
+    end
+    false
   end
 
   def compare_cells?(cell_1, cell_2, cell_3)
