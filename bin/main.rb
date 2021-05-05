@@ -5,3 +5,21 @@ player_1_name = gets.chomp
 puts 'Please, Enter player 2 name:'
 player_2_name = gets.chomp
 puts "#{player_1_name} will play with X and #{player_2_name} will play with O"
+puts 'Let\'s Start!'
+
+interface_row = '+---+---+---+'
+interface_col = '|'
+
+def print_interface_row(row, col, board_cells = nil)
+  puts row
+  puts "#{col} 1 #{col} 2 #{col} 3 #{col}"
+  puts row
+  puts "#{col} 4 #{col} 5 #{col} 6 #{col}"
+  puts row
+  puts "#{col} 7 #{col} 8 #{col} 9 #{col}"
+  puts row
+end
+
+print_interface_row(interface_row, interface_col)
+
+
