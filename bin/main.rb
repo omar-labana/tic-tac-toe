@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require_relative '../lib/game'
 puts 'Welcome to Ruby\'s Tic-Tac-Toe'
 puts 'Please, Enter player 1 name:'
 player_1_name = gets.chomp
@@ -31,6 +32,8 @@ end
 print_interface_row(interface_row, interface_col)
 move = 1
 playing = nil
+game = GameState.new()
+p game.game_board,game.game_state
 while move <= 9
   playing = if move.odd?
               player_1_name
