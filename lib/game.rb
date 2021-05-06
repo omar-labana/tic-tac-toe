@@ -8,7 +8,9 @@ class GameState
   end
 
   def is_valid_placement?(cell_number)
-    if cell_number.is_a?(String) || cell_number<1
+    if cell_number.is_a?(String) || cell_number < 0
+      return false
+    elsif @game_board[cell_number].is_a?(String)
       return false
     else
       return true if @game_board[cell_number].is_a?(Numeric) && @game_board.count(Numeric)<=9
@@ -41,7 +43,7 @@ class GameState
     checker
   end
 
-  def is_game_over?(_cell_number)
+  def is_game_over?(_cell_number = nil)
     game_over = false
     # Full board
     if @game_board.none?(Numeric)
@@ -54,5 +56,9 @@ class GameState
       game_over = true
     end
     game_over
+  end
+
+  def place_item(cell_number, player_name)
+    @game_board[cell_number] = player_name
   end
 end
