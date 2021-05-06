@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../lib/game'
+require_relative '../lib/players'
+
 
 def print_interface(board_cells)
   row = '+---+---+---+'
