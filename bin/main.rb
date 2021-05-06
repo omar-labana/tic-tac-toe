@@ -2,7 +2,6 @@
 require_relative '../lib/game'
 require_relative '../lib/players'
 
-
 def print_interface(board_cells)
   row = '+---+---+---+'
   col = '|'
@@ -17,7 +16,6 @@ end
 # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
 def start_game
-
   puts 'Welcome to Ruby\'s Tic-Tac-Toe'
   puts 'Please, Enter player 1 name:'
   player_1_name = gets.chomp
