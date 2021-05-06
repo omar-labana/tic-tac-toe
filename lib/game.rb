@@ -7,19 +7,18 @@ class GameState
     @game_state = 'Pending'
   end
 
-  def is_valid_placement?(cell_number)
-    if cell_number.is_a?(String) || cell_number < 0
-      return false
-    elsif @game_board[cell_number].is_a?(String)
-      return false
-    else
-      return true if @game_board[cell_number].is_a?(Numeric) && @game_board.count(Numeric)<=9
-    end
+  def valid_placement?(cell_number)
+    return false if cell_number.is_a?(String) || cell_number.negative?
+
+    return false if @game_board[cell_number].is_a?(String)
+
+    return true if @game_board[cell_number].is_a?(Numeric) && @game_board.count(Numeric) <= 9
+
     false
   end
 
-  def compare_cells?(cell_1, cell_2, cell_3)
-    cell_1 == cell_2 && cell_2 == cell_3
+  def compare_cells?(cell1, cell2, cell3)
+    cell1 == cell2 && cell2 == cell3
   end
 
   def check_diagonals?
@@ -43,20 +42,12 @@ class GameState
     checker
   end
 
-  def is_game_over?(_cell_number = nil)
+  def game_over?(_cell_number = nil)
     game_over = false
     # Full board
-    
-    if check_diagonals?
-      game_over = true
-    elsif check_rows?
-      game_over = true
-    elsif check_cols?
-      game_over = true
-    end
-    if @game_board.none?(Numeric)
-      game_over = 'draw'
-    end
+
+    game_over = true if check_diagonals? || check_rows? || check_cols?
+    game_over = 'draw' if @game_board.none?(Numeric)
     game_over
   end
 
