@@ -47,7 +47,7 @@ class GameState
     # Full board
 
     game_over = true if check_diagonals? || check_rows? || check_cols?
-    game_over = 'draw' if @game_board.none?(Numeric)
+    game_over = 'draw' if @game_board.none?(Numeric) && game_over == false
     game_over
   end
 
