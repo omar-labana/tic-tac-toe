@@ -17,6 +17,7 @@ end
 # rubocop: disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity, Metrics/MethodLength
 
 def start_game
+
   puts 'Welcome to Ruby\'s Tic-Tac-Toe'
   puts 'Please, Enter player 1 name:'
   player_1_name = gets.chomp
@@ -30,16 +31,17 @@ def start_game
     puts 'Please enter a valid name for player 2.'
     player_2_name = gets.chomp
   end
-  puts "#{player_1_name} will play with X and #{player_2_name} will play with O"
+  players = Players.new(player_1_name, player_2_name)
+  puts "#{players.player1} will play with X and #{players.player2} will play with O"
   puts 'Let\'s Start!'
   game = GameState.new
   playing = nil
   turn = 1
   until game.game_over?
     playing = if turn.odd?
-                player_1_name
+                players.player1
               else
-                player_2_name
+                players.player2
               end
     symbol = if turn.odd?
                'X'
