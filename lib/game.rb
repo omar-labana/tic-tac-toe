@@ -46,14 +46,16 @@ class GameState
   def is_game_over?(_cell_number = nil)
     game_over = false
     # Full board
-    if @game_board.none?(Numeric)
-      game_over = true
-    elsif check_diagonals?
+    
+    if check_diagonals?
       game_over = true
     elsif check_rows?
       game_over = true
     elsif check_cols?
       game_over = true
+    end
+    if @game_board.none?(Numeric)
+      game_over = 'draw'
     end
     game_over
   end

@@ -56,7 +56,10 @@ def start_game
         puts 'Please select a valid cell from the board'
       end
     end
-    if game.is_game_over?
+    if game.is_game_over? == 'draw'
+      print_interface(game.game_board)
+      puts "GAME OVER! Draw!"
+    elsif game.is_game_over?
       print_interface(game.game_board)
       puts "GAME OVER! #{playing} has won the game!"
     end
