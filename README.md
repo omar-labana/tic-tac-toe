@@ -8,9 +8,15 @@ In this project we built a Tic Tac Toe game that can be played by two players us
 
 ## Getting Started
 
-- To make a copy of the project on your local machine, you can either download the project files in a zip folder or type 'git clone' into your git commandline followed by the URL of this repository.
+- To make a copy of the project on your local machine, you can either download the project files in a zip folder or type ```git clone``` into your git commandline followed by the URL of this repository.
 
-- Once you have copied the project to your local machine, open your terminal in the project directory and run the project by typing 'bin\main.rb' into the terminal.
+- Once you have copied the project to your local machine, you can run it by either using the terminal or by launching the project as an application. 
+
+- In order to run it using the terminal, open your terminal in the project directory and run the project by typing ```bin\main.rb``` into the terminal.
+
+- In order to launch the project as an application, simply navigate to the project directory, open the folder called "bin", and open the file within the folder called "main.rb"
+
+
 
 ## Game Instructions and Rules
 
